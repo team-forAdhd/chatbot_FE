@@ -10,10 +10,16 @@ import Login from '../components/Login';
 import SettingNickname from '../components/SettingNickname';
 import TermsOfService from '../components/TermsOfService';
 import { colors } from '../styles/color';
+import { useNavigation } from '@react-navigation/native';
+import { RootStackParamList } from '../../navigation/StackNavigation';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+
+type OnBoardingNavProp = NativeStackNavigationProp<RootStackParamList, 'OnBoarding'>
 
 function OnBoarding(): React.JSX.Element {
   const [index, setIndex] = useState(0);
   const fadeAnim = useRef(new Animated.Value(1)).current;
+  const navigation = useNavigation<OnBoardingNavProp>();
 
   const messages = [
     "안녕하세요!\n저는 모리라고 해요",
@@ -67,6 +73,9 @@ function OnBoarding(): React.JSX.Element {
         setIndex(prev => prev + 1);
         fadeIn();
       });
+    }
+    if(index === 16){
+      navigation.replace("Tabs")
     }
   };
 
