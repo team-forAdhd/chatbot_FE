@@ -81,7 +81,7 @@ const Login = ({setIndex}:LoginProps) => {
           <></>
           }
         <MarginVertical margin={10}/>
-        <Button text={"입력완료"} check={id.length>0} handleButton={handleNextButton}/>
+        <Button text={"입력완료"} check={step === 1 ? idValid : idValid && pwValid} handleButton={handleNextButton}/>
         <MarginVertical margin={8}/>
         <ChangeLogin onPress={() => setIsLogin(true)}>
           <ChangeLoginText>이미 계정이 있어요</ChangeLoginText>
@@ -128,7 +128,7 @@ const Login = ({setIndex}:LoginProps) => {
           <></>
           }
         <MarginVertical margin={10}/>
-        <Button text={"입력완료"} check={id.length>0} handleButton={handleNextButton}/>
+        <Button text={"입력완료"} check={step === 1? idValid : idValid && pwValid} handleButton={handleNextButton}/>
         <MarginVertical margin={8}/>
         <ChangeLogin onPress={() => setIsLogin(true)}>
           <ChangeLoginText>비밀번호 찾기</ChangeLoginText>
@@ -152,7 +152,8 @@ const Login = ({setIndex}:LoginProps) => {
 export default Login
 
 const Body = styled.View`
-  width:100%;
+  width: ${() => `${size.width*.9}px`};
+  height: ${() => `${size.height}px`};
   display:flex;
   justify-content:center;
   align-items:center;
