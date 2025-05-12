@@ -33,7 +33,7 @@ const Report = () => {
                 </CategoryIcon>
                 <Text style={{flexGrow:1}}>{el}</Text>
                 <TouchableOpacity style={{width:30,height:"100%", alignItems:'center', justifyContent:'center'}}
-                  onPress={() => navigation.navigate("MedicineNoti")}
+                  onPress={() => navigation.navigate(index === 0 ? "MedicineNoti" : index === 1 ? "MedicineCalendar" : "EmotionCalendar")}
                 >
                   <Icon name="right" size={16} color="#000"/>
                 </TouchableOpacity>
