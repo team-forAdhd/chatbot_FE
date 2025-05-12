@@ -15,7 +15,7 @@ export default function StackNavigation(){
   return (
     
       <Stack.Navigator
-        initialRouteName='OnBoarding'
+        initialRouteName='Tabs'
         screenOptions={{
           headerShown:false
         }}
